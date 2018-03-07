@@ -6,9 +6,17 @@ app = Flask(__name__) # Create instance of the Flask class. It is a place holder
 
 #decorator : 
 @app.route('/')
-def hello():
+def index():
     # return "<h1>Hello World</h1><h2>This is a Flask Application</h2>"
     return render_template("index.html")
+    
+@app.route('/about')
+def about():
+    return render_template("about.html")
+    
+@app.route('/contact')
+def contact():
+    return render_template("contact.html")
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), # run the server
