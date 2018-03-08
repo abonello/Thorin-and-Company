@@ -5,6 +5,7 @@
 
 @media (min-width: 768px) {
     .col-md-5 img {
-    padding-top: 70px;
+    /*padding-top: 70px;*/ /* Vertical Align with paragraph */
+    padding-top: 0px; /* Vertical Align with Heading */
 }
 }
