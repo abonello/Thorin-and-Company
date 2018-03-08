@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2>{{ page_title }}</h2><!-- About -->
-
 <p>The formation of the group grew out of a meeting Gandalf had with Thorin in 
 Bree which kindled Thorin's interest in recapturing his long lost family 
 inheritance. Remembering that he had once known an adventurous Hobbit on his 
@@ -14,16 +13,29 @@ a fourteenth to fill in to their party.</p>
 
 {% for member in company_data %}
 <div class="row featurette">
+    {% if loop.index % 2 == 1 %}
     <div class="col-md-7">
-        <h3 class="featurette-heading">{{ member.name }}</h3>
+        <h3 class="featurette-heading">{{ loop.index }}. {{ member.name }}</h3>
         <p class="lead">{{ member.description }}</p>
     </div>
     <div class="col-md-5">
         <!--<img src="{{ url_for('static', filename='img/Thorin.jpg') }}" alt="Image of Thorin"></img>-->
         <img src="{{ member.image_source }}" alt="Image of {{ member.name }}"></img>
     </div>
+    {% else %}
+    <div class="col-md-5">
+        <!--<img src="{{ url_for('static', filename='img/Thorin.jpg') }}" alt="Image of Thorin"></img>-->
+        <img src="{{ member.image_source }}" alt="Image of {{ member.name }}"></img>
+    </div>
+    <div class="col-md-7">
+        <h3 class="featurette-heading">{{ loop.index }}. {{ member.name }}</h3>
+        <p class="lead">{{ member.description }}</p>
+    </div>
+    {% endif %}
 </div>
+{% if loop.index != company_data|length %}
 <hr class="featurette-divider">
+{% endif %}
 {% endfor %}
 
 {% endblock %}
