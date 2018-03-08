@@ -8,19 +8,19 @@ app = Flask(__name__) # Create instance of the Flask class. It is a place holder
 @app.route('/')
 def index():
     # return "<h1>Hello World</h1><h2>This is a Flask Application</h2>"
-    return render_template("index.html")
+    return render_template("index.html", page_title="Home Page")
     
 @app.route('/about')
 def about():
-    return render_template("about.html")
+    return render_template("about.html", page_title="About")
     
 @app.route('/contact')
 def contact():
-    return render_template("contact.html")
+    return render_template("contact.html", page_title="Contact")
     
 @app.route('/careers')
 def careers():
-    return render_template("careers.html")
+    return render_template("careers.html", page_title="Vacancies", subtitle="Come work with us!")
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), # run the server
