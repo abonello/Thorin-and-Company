@@ -1,0 +1,10 @@
+.col-md-5 img {
+    width: 100%;
+    padding-top: 10px;
+}
+
+@media (min-width: 768px) {
+    .col-md-5 img {
+    padding-top: 70px;
+}
+}
