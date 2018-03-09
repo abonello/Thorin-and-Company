@@ -10,3 +10,9 @@ At the moment it stores information in a json file.
 * render from templates
 * different request methods, GET and POST
 * using flash for giving feedback to users.
+
+**requirements.txt** file is a file that Python projects use to handle 
+dependency management.
+
+**Procfile** is a heroku-specific file that tells heroku that this is a web 
+application and that we will use the run.py command to run it.
