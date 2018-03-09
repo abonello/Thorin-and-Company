@@ -1,9 +1,10 @@
 # This is the entry file for the application
 import os
 import json
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash
 
 app = Flask(__name__) # Create instance of the Flask class. It is a place holder for the current module
+app.secret_key = 'some_secret' # This is needed for flash to work
 
 #decorator : 
 @app.route('/')
@@ -34,6 +35,8 @@ def about_member(member_name):
 @app.route('/contact', methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
+        flash("Thanks {}, we have received your message.".format(
+            request.form["name"]))
         print("Hello, POST method used.")
         print(request.form)
         print("Name: " + request.form["name"])
