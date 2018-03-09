@@ -1,7 +1,7 @@
 # This is the entry file for the application
 import os
 import json
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__) # Create instance of the Flask class. It is a place holder for the current module
 
@@ -31,8 +31,12 @@ def about_member(member_name):
     return render_template("member.html", member=member)
     
 
-@app.route('/contact')
+@app.route('/contact', methods=["GET", "POST"])
 def contact():
+    if request.method == "POST":
+        print("Hello, POST method used.")
+        print(request.form)
+        print("Name: " + request.form["name"])
     return render_template("contact.html", page_title="Contact")
     
 @app.route('/careers')
