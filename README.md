@@ -1,5 +1,7 @@
 # Thorin and Company
 
+This project is currently hosted [here](https://thorin-and-company-tutorial.herokuapp.com/).
+
 A tutorial using Python and Flask to develop the back end of a website.
 At the moment it stores information in a json file.
 
